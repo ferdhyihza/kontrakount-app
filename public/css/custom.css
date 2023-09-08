@@ -1,0 +1,343 @@
+:root {
+    --navy: #2a3785;
+    --lightnavy: #f8fbff;
+    --green: #19b832;
+    --lightgreen: #16ff3b;
+    --red: #ff3b30;
+    --grey: #d7dce4;
+    --white: #fff;
+    --fwregular: 400;
+    --fwmedium: 500;
+    --fwsemibold: 600;
+    --fwbold: 700;
+    --fwextrabold: 800;
+}
+
+html,
+body {
+    font-family: "Poppins", sans-serif;
+    height: 100%;
+    color: #2a3785;
+}
+
+.container {
+    max-width: 480px;
+    background-color: #f8fbff;
+    height: calc(100% - 4rem);
+    box-shadow: 0px 38.486881256103516px 71.47562408447266px 0px
+        rgba(0, 0, 0, 0.5);
+}
+
+.container-nonav {
+    max-width: 480px;
+    background-color: #f8fbff;
+    height: 100%;
+    box-shadow: 0px 38.486881256103516px 71.47562408447266px 0px
+        rgba(0, 0, 0, 0.5);
+}
+
+.login-page {
+    height: 100%;
+    background-image: url("../img/login-page.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 90%;
+}
+
+.title {
+    font-weight: var(--fwextrabold);
+    color: var(--navy);
+}
+
+.subtitle {
+    font-weight: var(--fwregular);
+    color: var(--navy);
+}
+
+.btn-login-google {
+    border-radius: 1rem;
+    border: 2px solid #2a3785;
+    box-shadow: 0px 38.486881256103516px 71.47562408447266px 0px
+        rgba(0, 0, 0, 0.15);
+    background-color: var(--white);
+    width: 90%;
+    gap: 1rem;
+}
+
+.btn-login-google:hover {
+    border: 2px solid #2a3785;
+}
+
+.logo-google {
+    width: 2rem;
+    height: 2rem;
+    flex-shrink: 0;
+}
+
+.title-login-google {
+    font-weight: var(--fwmedium);
+    color: rgba(16, 16, 65, 0.54);
+}
+
+/* Navbar */
+.nav-link {
+    opacity: 25%;
+}
+
+.nav-link img {
+    width: 24px;
+}
+
+.wrapper {
+    background-color: #000;
+}
+
+.nav-link.active {
+    opacity: 100%;
+}
+
+.navbar {
+    max-width: 480px;
+    height: 4rem;
+    box-shadow: 0px 38.486881256103516px 71.47562408447266px 0px
+        rgba(0, 0, 0, 0.5);
+}
+
+/* Dashboard */
+.page-title {
+    font-size: 1rem;
+    font-weight: var(--fwbold);
+    line-height: 170%;
+}
+
+.dashboard {
+    background-color: var(--navy);
+    background-image: url("../img/dashboard-bg.svg");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100%;
+}
+
+#saldo-title {
+    font-weight: var(--fwmedium);
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+#saldo-amount {
+    font-weight: var(--fwbold);
+    font-size: 1.5rem;
+}
+
+.masuk-title img,
+.keluar-title img {
+    width: 24px;
+}
+
+.masuk-title p,
+.keluar-title p {
+    font-size: 0.75rem;
+    padding-right: 8px;
+}
+.masuk h4,
+.keluar h4 {
+    font-size: 1rem;
+    font-weight: var(--fwbold);
+}
+
+.trx-this-month {
+    font-size: 0.75rem;
+    color: var(--navy);
+}
+
+.trx-this-month span {
+    font-size: 1rem;
+    font-weight: var(--fwbold);
+}
+
+.header a {
+    border: 1px solid #f0f1f5;
+}
+
+.header a img {
+    width: 24px;
+}
+
+.last-trx {
+    font-weight: var(--fwbold);
+    color: var(--navy);
+}
+
+.item-name,
+.item-amount {
+    font-size: 0.9rem;
+    color: var(--navy);
+    font-weight: var(--fwmedium);
+    text-decoration: none;
+    line-height: 120%;
+}
+
+.pengeluaran {
+    color: var(--red);
+}
+
+.pemasukan {
+    color: var(--green);
+}
+
+.item-desc,
+.item-date {
+    font-size: 0.6rem;
+    color: var(--navy);
+}
+
+.item-note {
+    font-size: 0.6rem;
+    color: var(--navy);
+    opacity: 50%;
+}
+
+.btn-logout,
+.btn-logout:focus {
+    color: var(--lightnavy);
+    background-color: var(--navy);
+}
+
+.btn-cancel {
+    color: var(--navy);
+}
+
+/* Profil */
+.page-title-dark {
+    font-size: 1rem;
+    font-weight: var(--fwbold);
+    color: var(--navy);
+    line-height: 170%;
+}
+
+.img-thumbnail {
+    width: 124px;
+    height: 124px;
+    border-radius: 50%;
+}
+
+.nama-user {
+    font-weight: var(--fwsemibold);
+    color: var(--navy);
+}
+
+.label-item {
+    font-size: 0.8rem;
+    color: var(--navy);
+}
+
+#profilModalLabel,
+#logoutModalLabel {
+    font-weight: var(--fwsemibold);
+}
+
+.modal-header,
+.modal-footer {
+    background-color: var(--lightnavy);
+}
+
+/* Add Record */
+.page-title-dark {
+    font-size: 1rem;
+    font-weight: var(--fwbold);
+    line-height: 170%;
+    color: var(--navy);
+}
+
+.bg-tabs {
+    background-color: rgba(42, 56, 133, 0.15);
+    padding: 0.25rem;
+    border-radius: 8px;
+}
+
+.label-jenis {
+    font-weight: var(--fwsemibold);
+    font-size: 0.75rem;
+    padding: 0.25rem 1rem;
+    /* margin: 0.25rem 0; */
+    /* background-color: #f8fbff; */
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    border-radius: 4px;
+    cursor: default;
+    user-select: none;
+    color: rgba(42, 56, 133, 0.5);
+}
+
+.input-jenis {
+    display: none;
+}
+
+input[type="radio"]:checked + label {
+    color: var(--navy);
+    background-color: #fff; /* Change the text color when checked */
+}
+/* 
+#nama-trx,
+#jumlah-trx,
+.form-select,
+input[type="date"],
+input[type="date"]:focus {
+    color: var(--navy);
+} */
+
+.prepend-pemasukan {
+    color: var(--lightgreen);
+    background-color: #f8fbff;
+}
+
+.prepend-pengeluaran {
+    color: var(--red);
+    background-color: #f8fbff;
+}
+/* 
+input[type="text"]::placeholder,
+input[type="number"]::placeholder {
+    color: rgba(42, 56, 133, 0.5);
+} */
+
+.form-label {
+    font-weight: var(--fwmedium);
+}
+
+label:has(+ input[required])::after,
+label:has(+ select[required])::after,
+label:has(+ div > input[required])::after {
+    content: "*"; /* This can be any content you want to display */
+    color: red; /* Customize the color */
+    margin-left: 5px; /* Adjust spacing */
+}
+
+.btn-simpan,
+.btn-simpan:focus,
+.btn-logout:active {
+    color: #f8fbff;
+    font-weight: var(--fwsemibold);
+    background-color: var(--navy);
+    border: 1px solid var(--navy);
+}
+
+.disable-scrollbar::-webkit-scrollbar {
+    width: 0em;
+}
+/* 
+.disable-scrollbar::-webkit-scrollbar-thumb {
+    background-color: transparent;
+} */
+
+/* History */
+.month-divider {
+    color: var(--navy);
+    font-weight: var(--fwsemibold);
+}
+
+.disable-cursor {
+    cursor: default;
+    user-select: none;
+}
