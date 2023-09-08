@@ -17,12 +17,10 @@
             <div class="d-flex justify-content-between py-1 mx-2 disable-cursor">
               <div class="list-item-kiri d-flex gap-2" style="width: 60%">
                 <div class="list-img d-flex">
-                  <img src="{{ asset('img/google-logo.png') }}" alt="" style="width: 24px">
+                  <img src="{{ $user->avatar }}" alt="" style="width: 36px">
                 </div>
                 <div class="list-desc d-flex flex-column justify-content-center">
-                  <h5 class="m-0 item-name">{{ ucwords(strtolower($user->name)) }}
-
-                  </h5>
+                  <h5 class="m-0 item-name">{{ ucwords(strtolower($user->name)) }} {!! $user->is_admin == 1 ? '<span class="badge text-bg-secondary">Admin</span>' : '' !!}</h5>
                 </div>
               </div>
               <div class="list-item-kanan d-flex flex-column justify-content-center align-items-end" style="width: 35%">
