@@ -6,9 +6,9 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body text-center pb-4">
-        <img src="{{ asset('img/google-logo.png') }}" class="img-thumbnail my-4">
+        <img src="{{ Auth::user()->avatar }}" class="img-thumbnail my-4">
         <p class="label-item mt-3 mb-1">Nama</p>
-        <h6 class="nama-user">Nama Penggunanya</h6>
+        <h6 class="nama-user"> {{ Auth::user()->name }} </h6>
         <p class="label-item mt-3 mb-1">Status</p>
         <h6 class="nama-user">Unverified</h6>
       </div>
