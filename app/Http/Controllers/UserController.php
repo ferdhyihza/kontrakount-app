@@ -92,7 +92,8 @@ class UserController extends Controller
 
     public function verify(User $user)
     {
-        $user->user_verified_at = date('Y-m-d H:i:s', time());
+        $data['user_verified_at'] = date('Y-m-d H:i:s', time());
+        User::where('id', $user->id)->update($data);
         return redirect('user');
     }
 }

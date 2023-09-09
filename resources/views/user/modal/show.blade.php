@@ -2,7 +2,7 @@
   <div class="modal-dialog modal-dialog-centered px-5">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-6" id="userModalLabel">Profil Pengguna</h1>
+        <h1 class="modal-title fs-6" id="userModalLabel">Detail User</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body text-center pb-4">
@@ -25,6 +25,7 @@
       @if($user->user_verified_at == null)
       <div class="modal-footer d-flex justify-content-center">
         <form action="{{ route('user.verify',['user' => $user->id]) }}" method="POST">
+          @csrf
           <button type="submit" class="btn btn-logout">Verified</button>
         </form>
       </div>
