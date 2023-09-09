@@ -70,6 +70,10 @@ class TransactionController extends Controller
         };
         // return dd($validated_data);
 
+        // Created by
+        if ($validated_data['note']) $validated_data['note'] = $validated_data['note'] . '<br> [' . auth()->user()->name . ']';
+        else $validated_data['note'] = '[' . auth()->user()->name . ']';
+
         //upload image
         if (isset($validated_data['attachment'])) {
             $image = $request->file('attachment');

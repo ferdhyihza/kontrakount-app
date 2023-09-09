@@ -15,13 +15,8 @@
   </div>
 
   <div class="amount text-light text-center">
-    <div class="saldo mb-4">
-      <h4 id="saldo-title">Saldo Kas</h4>
-      @php
-      $negative = false;
-      if ($saldo < 0) { $saldo=abs($saldo); $negative=true; } @endphp <h2 id="saldo-amount">{{ $negative ? '- ' : '' }}@currency($saldo)</h2>
-    </div>
-    <div class="d-flex masuk-keluar justify-content-around">
+
+    <div class="d-flex masuk-keluar justify-content-around mb-4">
       <div class="masuk">
         <div class="masuk-title d-flex justify-content-center align-items-center mb-1">
           <p class="m-0">Pemasukan</p>
@@ -39,6 +34,12 @@
         </div>
         <h4>@currency($pengeluaran)</h4>
       </div>
+    </div>
+    <div class="saldo ">
+      <h4 id="saldo-title">Saldo Kas</h4>
+      @php
+      $negative = false;
+      if ($saldo < 0) { $saldo=abs($saldo); $negative=true; } @endphp <h2 id="saldo-amount">{{ $negative ? '- ' : '' }}@currency($saldo)</h2>
     </div>
   </div>
 

@@ -49,7 +49,7 @@
         <input type="text" class="form-control @error('amount') is-invalid @enderror" name="amount" id="jumlah-trx" placeholder="Masukkan Jumlah" aria-describedby="inputGroupPrepend" value="{{ old('amount') }}" onkeyup="formatRupiah(this)" required @can('not_verified') disabled @endcan>
         <span class="input-group-text">,00</span>
         <div class="invalid-feedback">
-          Pilih bilangan bulat saja
+          Pilih bilangan bulat saja, min 3 digit
         </div>
       </div>
     </div>
@@ -83,8 +83,8 @@
     </div>
     {{-- date --}}
     <div class="mb-3">
-      <label for="tanggal-trx" class="form-label">Tanggal</label>
-      <input type="datetime-local" max="{{ now()->toDateString('Y-m-d') }}" class="form-control @error('date') is-invalid @enderror" name="datetime" id="tanggal-trx" value="{{ old('date') }}" required @can('not_verified') disabled @endcan>
+      <label for="tanggal-trx" class="form-label">Waktu</label>
+      <input type="datetime-local" max="{{ now()->toDateString('Y-m-d') }}" class="form-control @error('datetime') is-invalid @enderror" name="datetime" id="tanggal-trx" value="{{ old('datetime') }}" required @can('not_verified') disabled @endcan>
       @error('datetime')
       <div class="invalid-feedback">
         Pilih tanggal yang benar
@@ -99,7 +99,12 @@
     {{-- attachment --}}
     <div class="mb-4">
       <label for="file-trx" class="form-label">Lampiran</label>
-      <input class="form-control" type="file" name="attachment" id="file-trx" value="{{ old('attachment') }}" @can('not_verified') disabled @endcan>
+      <input class="form-control @error('attachment') is-invalid @enderror" type="file" name="attachment" id="file-trx" value="{{ old('attachment') }}" @can('not_verified') disabled @endcan>
+      @error('attachment')
+      <div class="invalid-feedback">
+        {{ $message }}
+      </div>
+      @enderror
     </div>
     {{-- submit --}}
     @can('verified')

@@ -14,7 +14,7 @@
             {{ $transaction->attachment != null ? '✅' : '' }}
           </h6>
           <p class="m-0 item-desc">{{ ucwords(str_replace("-", " ", $transaction->category))  }}</p>
-          <p class="m-0 item-note"><i>{{ $transaction->note }}</i></p>
+          <p class="m-0 item-note"><i>{!! $transaction->note !!}</i></p>
         </div>
       </div>
       <div class="list-item-kanan d-flex flex-column justify-content-center align-items-end" style="width: 35%">
