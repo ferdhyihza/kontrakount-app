@@ -33,3 +33,4 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 Route::resource('transaction', TransactionController::class)->middleware('auth');
 Route::get('transaction/{transaction}/attachment', [TransactionController::class, 'getImage'])->name('transaction.get-image')->middleware('auth');
 Route::resource('user', UserController::class)->middleware('auth');
+Route::post('user/{user}/verify', [UserController::class, 'verify'])->name('user.verify')->middleware('auth');

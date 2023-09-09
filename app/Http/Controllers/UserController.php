@@ -16,7 +16,7 @@ class UserController extends Controller
     {
         $users = User::all();
 
-        return view('user', [
+        return view('user.index', [
             'users' => $users
         ]);
     }
@@ -51,7 +51,9 @@ class UserController extends Controller
     public function show(User $user)
     {
         //
-        return view('users');
+        return view('user.show', [
+            'user' => $user
+        ]);
     }
 
     /**
@@ -86,5 +88,11 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
+    }
+
+    public function verify(User $user)
+    {
+        $user->user_verified_at = date('Y-m-d H:i:s', time());
+        return redirect('user');
     }
 }

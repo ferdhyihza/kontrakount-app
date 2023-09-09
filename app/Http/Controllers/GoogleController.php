@@ -26,15 +26,20 @@ class GoogleController extends Controller
                 $request->session()->regenerate();
                 return redirect()->intended('dashboard');
             } else {
-                if (User::count() == 0) $admin = true;
-                else $admin = false;
+                if (User::count() == 0) {
+                    $admin = true;
+                    $verified = date('Y-m-d H:i:s', time());
+                } else {
+                    $admin = false;
+                    $verified = null;
+                };
                 $newUser = User::create([
                     'name' => $user->name,
                     'email' => $user->email,
                     'avatar' => $user->avatar,
                     'id_google' => $user->id,
                     'is_admin' => $admin,
-                    // 'email_verified_at' => date('D-m-y H:i:s', time()),
+                    'user_verified_at' => $verified,
                 ]);
                 Auth::login($newUser);
                 return redirect()->intended('dashboard');

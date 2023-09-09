@@ -236,9 +236,12 @@ body {
     color: var(--navy);
 }
 
-#profilModalLabel,
-#logoutModalLabel {
+.modal-title {
     font-weight: var(--fwsemibold);
+}
+
+.modal {
+    color: var(--navy);
 }
 
 .modal-header,
@@ -361,4 +364,21 @@ label:has(+ div > input[required])::after {
 .unverified {
     color: var(--red);
     font-weight: var(--fwsemibold);
+}
+
+.btn-verified,
+.btn-verified:focus {
+    color: var(--lightnavy);
+    background-color: var(--green);
+}
+
+.btn-verified:hover {
+    color: var(--green);
+}
+
+.btn-verified:active {
+    color: #f8fbff;
+    font-weight: var(--fwsemibold);
+    background-color: var(--lightgreen);
+    border: 1px solid var(--lightgreen);
 }
