@@ -59,7 +59,7 @@ class TransactionController extends Controller
             'title'     => 'required',
             'amount'     => 'required|integer|min:3',
             'category'     => 'required|in:iuran-anggota,pemasukan-lain,belanja-kebutuhan,tagihan,pengeluaran-lain',
-            'date' => 'required',
+            'datetime' => 'required',
             'note' => '',
             'attachment' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ];

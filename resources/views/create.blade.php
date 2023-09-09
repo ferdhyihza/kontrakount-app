@@ -78,8 +78,8 @@
     {{-- date --}}
     <div class="mb-3">
       <label for="tanggal-trx" class="form-label">Tanggal</label>
-      <input type="date" max="{{ now()->toDateString('Y-m-d') }}" class="form-control @error('date') is-invalid @enderror" name="date" id="tanggal-trx" value="{{ old('date') }}" required>
-      @error('date')
+      <input type="datetime-local" max="{{ now()->toDateString('Y-m-d') }}" class="form-control @error('date') is-invalid @enderror" name="datetime" id="tanggal-trx" value="{{ old('date') }}" required>
+      @error('datetime')
       <div class="invalid-feedback">
         Pilih tanggal yang benar
       </div>

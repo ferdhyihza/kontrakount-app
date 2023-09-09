@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('title');
             $table->integer('amount');
             $table->enum('category', ['belanja-kebutuhan', 'tagihan', 'pengeluaran-lain', 'iuran-anggota', 'pemasukan-lain']);
-            $table->date('date');
+            $table->timestamp('datetime');
             $table->string('note')->nullable();
             $table->string('attachment')->nullable();
             $table->timestamps();
