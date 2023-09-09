@@ -222,7 +222,12 @@ body {
 }
 
 .nama-user {
-    font-weight: var(--fwsemibold);
+    font-weight: var(--fwbold);
+    color: var(--navy);
+}
+
+.atribut-user {
+    font-weight: var(--fwmedium);
     color: var(--navy);
 }
 

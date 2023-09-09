@@ -83,7 +83,9 @@
             </div>
           </li>
           @endforeach
-
+          @if(count($transactions) == 0)
+          <p class="text-center">-- No data available --</p>
+          @endif
         </ul>
   </div>
 
