@@ -23,15 +23,15 @@ Route::get('/', function () {
 
 Route::get('login', function () {
     return view('login');
-})->name('login');
+})->name('login')->middleware('guest');
 
-Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('auth.google');
-Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
-Route::get('logout', [GoogleController::class, 'logout'])->name('logout');
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('auth.google')->middleware('guest');
+Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->middleware('guest');
+Route::get('logout', [GoogleController::class, 'logout'])->name('logout')->middleware('auth');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 Route::resource('transaction', TransactionController::class)->middleware('auth');
 Route::get('transaction/{transaction}/attachment', [TransactionController::class, 'getImage'])->name('transaction.get-image')->middleware('auth');
-Route::get('user', [UserController::class, 'index'])->middleware('auth');
-Route::post('user/{user}/verify', [UserController::class, 'verify'])->name('user.verify')->middleware('auth');
-Route::get('user/{user}', [UserController::class, 'destroy'])->name('user.destroy')->middleware('auth');
+Route::get('user', [UserController::class, 'index'])->middleware('is_admin');
+Route::post('user/{user}/verify', [UserController::class, 'verify'])->name('user.verify')->middleware('is_admin');
+Route::delete('user/{user}', [UserController::class, 'destroy'])->name('user.destroy')->middleware('is_admin');

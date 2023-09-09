@@ -2,7 +2,7 @@
   <div class="modal-dialog modal-dialog-centered px-5">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-6" id="userModalLabel">Detail User</h1>
+        <h1 class="modal-title fs-6" id="userModalLabel">Detail Pengguna</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body text-center pb-4">
@@ -24,8 +24,9 @@
       </div>
       @if(!$user->is_admin)
       <div class="modal-footer d-flex justify-content-center">
-        <form action="{{ route('user.destroy',['user' => $user->id]) }}" method="GET">
+        <form action="{{ route('user.destroy',['user' => $user->id]) }}" method="POST">
           @csrf
+          @method('DELETE')
           <button type="submit" class="btn btn-danger">Delete</button>
         </form>
         @if($user->user_verified_at == null)

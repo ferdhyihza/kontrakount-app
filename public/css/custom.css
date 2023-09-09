@@ -339,6 +339,11 @@ label:has(+ div > input[required])::after {
     background-color: transparent;
 } */
 
+.text-alert {
+    font-size: 0.75rem;
+    font-weight: var(--fwmedium);
+}
+
 /* History */
 .month-divider {
     color: var(--navy);

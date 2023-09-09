@@ -5,7 +5,7 @@
 @section('content')
 <div class="d-flex flex-column" style="height: inherit">
   <div class="d-flex header justify-content-center text-light my-3 position-relative">
-    <h5 class="m-0 py-3 page-title-dark">Manage Users</h5>
+    <h5 class="m-0 py-3 page-title-dark">Kelola Pengguna</h5>
   </div>
 
   <div class="last-transaction card " style="height: inherit">

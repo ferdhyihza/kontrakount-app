@@ -55,7 +55,7 @@
           @php
           $last_month = $current_month;
           @endphp
-          @include('components.trx-card')
+          @include('components.card-transaction')
           @endforeach
           @if(count($transactions) == 0)
           <p class="text-center">-- No data available --</p>
