@@ -32,5 +32,6 @@ Route::get('logout', [GoogleController::class, 'logout'])->name('logout');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 Route::resource('transaction', TransactionController::class)->middleware('auth');
 Route::get('transaction/{transaction}/attachment', [TransactionController::class, 'getImage'])->name('transaction.get-image')->middleware('auth');
-Route::resource('user', UserController::class)->middleware('auth');
+Route::get('user', [UserController::class, 'index'])->middleware('auth');
 Route::post('user/{user}/verify', [UserController::class, 'verify'])->name('user.verify')->middleware('auth');
+Route::get('user/{user}', [UserController::class, 'destroy'])->name('user.destroy')->middleware('auth');

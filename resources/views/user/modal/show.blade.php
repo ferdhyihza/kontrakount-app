@@ -22,12 +22,19 @@
         @endif
         @endif
       </div>
-      @if($user->user_verified_at == null)
+      @if(!$user->is_admin)
       <div class="modal-footer d-flex justify-content-center">
+        <form action="{{ route('user.destroy',['user' => $user->id]) }}" method="GET">
+          @csrf
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+        @if($user->user_verified_at == null)
         <form action="{{ route('user.verify',['user' => $user->id]) }}" method="POST">
           @csrf
           <button type="submit" class="btn btn-logout">Verified</button>
         </form>
+
+        @endif
       </div>
 
       @endif

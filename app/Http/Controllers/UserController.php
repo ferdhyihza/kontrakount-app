@@ -11,7 +11,7 @@ class UserController extends Controller
     {
         $users = User::all();
 
-        return view('users', [
+        return view('user.index', [
             'users' => $users
         ]);
     }
@@ -20,6 +20,13 @@ class UserController extends Controller
     {
         $data['user_verified_at'] = date('Y-m-d H:i:s', time());
         User::where('id', $user->id)->update($data);
+        return redirect('user');
+    }
+
+    public function destroy(User $user)
+    {
+        // $user = User::find($id);
+        $user->delete();
         return redirect('user');
     }
 }

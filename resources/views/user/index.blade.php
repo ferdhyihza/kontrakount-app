@@ -19,10 +19,12 @@
               <div class="d-flex justify-content-between py-1 mx-2 disable-cursor">
                 <div class="list-item-kiri d-flex gap-2" style="width: 60%">
                   <div class="list-img d-flex">
-                    <img src="{{ $user->avatar }}" alt="" style="width: 36px">
+                    <img class="rounded" src="{{ $user->avatar }}" alt="" style="width: 48px">
                   </div>
                   <div class="list-desc d-flex flex-column justify-content-center">
                     <h5 class="m-0 item-name">{{ ucwords(strtolower($user->name)) }}</h5>
+                    <p class="m-0 item-desc">{{ $user->email  }}</p>
+
                   </div>
                 </div>
                 <div class="list-item-kanan d-flex flex-column justify-content-center align-items-center" style="width: 35%">
