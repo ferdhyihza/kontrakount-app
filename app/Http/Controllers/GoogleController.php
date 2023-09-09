@@ -22,6 +22,14 @@ class GoogleController extends Controller
             // return dd($user);
             $findUser = User::where('id_google', $user->id)->first();
             if ($findUser) {
+                if (
+                    $user->name != $findUser->name ||
+                    $user->avatar != $findUser->avatar
+                ) {
+                    $data['name'] = $user->name;
+                    $data['avatar'] = $user->avatar;
+                    $findUser->update($data);
+                }
                 Auth::login($findUser);
                 $request->session()->regenerate();
                 return redirect()->intended('dashboard');
