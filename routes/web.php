@@ -17,6 +17,10 @@ use App\Http\Controllers\TransactionController;
 |
 */
 
+Route::get('/', function () {
+    return redirect('login');
+});
+
 Route::get('login', function () {
     return view('login');
 })->name('login');
