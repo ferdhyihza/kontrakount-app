@@ -341,3 +341,19 @@ label:has(+ div > input[required])::after {
     cursor: default;
     user-select: none;
 }
+
+/* User */
+.admin {
+    color: var(--navy);
+    font-weight: var(--fwsemibold);
+}
+
+.verified {
+    color: var(--green);
+    font-weight: var(--fwsemibold);
+}
+
+.unverified {
+    color: var(--red);
+    font-weight: var(--fwsemibold);
+}

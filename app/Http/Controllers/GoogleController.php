@@ -15,7 +15,7 @@ class GoogleController extends Controller
         return Socialite::driver('google')->redirect();
     }
 
-    public function handleGoogleCallback()
+    public function handleGoogleCallback(Request $request)
     {
         try {
             $user = Socialite::driver('google')->user();
@@ -23,6 +23,7 @@ class GoogleController extends Controller
             $findUser = User::where('id_google', $user->id)->first();
             if ($findUser) {
                 Auth::login($findUser);
+                $request->session()->regenerate();
                 return redirect()->intended('dashboard');
             } else {
                 if (User::count() == 0) $admin = true;
@@ -51,6 +52,6 @@ class GoogleController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/login');
     }
 }

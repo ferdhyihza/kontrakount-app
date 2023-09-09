@@ -20,11 +20,20 @@
                   <img src="{{ $user->avatar }}" alt="" style="width: 36px">
                 </div>
                 <div class="list-desc d-flex flex-column justify-content-center">
-                  <h5 class="m-0 item-name">{{ ucwords(strtolower($user->name)) }} {!! $user->is_admin == 1 ? '<span class="badge text-bg-secondary">Admin</span>' : '' !!}</h5>
+                  <h5 class="m-0 item-name">{{ ucwords(strtolower($user->name)) }}</h5>
                 </div>
               </div>
-              <div class="list-item-kanan d-flex flex-column justify-content-center align-items-end" style="width: 35%">
-                Kanan
+              <div class="list-item-kanan d-flex flex-column justify-content-center align-items-center" style="width: 35%">
+                @if($user->is_admin)
+                <h6 class="m-0 item-amount admin">Admin</h6>
+                @else
+                @if($user->user_verified_at == null)
+                <h6 class="m-0 item-amount unverified">Unverified</h6>
+                @else
+                <h6 class="m-0 item-amount verified">Verified</h6>
+                @endif
+                @endif
+
               </div>
             </div>
           </li>

@@ -41,7 +41,7 @@
         <span class="input-group-text prepend prepend-pemasukan">+ Rp</span>
         @endif
         <input type="text" class="form-control @error('amount') is-invalid @enderror" name="amount" id="jumlah-trx" placeholder="Masukkan Jumlah" aria-describedby="inputGroupPrepend" value="{{ old('amount') }}" onkeyup="formatRupiah(this)" required>
-        <span class="input-group-text prepend">,00</span>
+        <span class="input-group-text">,00</span>
         <div class="invalid-feedback">
           Pilih bilangan bulat saja
         </div>
@@ -125,7 +125,7 @@
           '<option {{ old("category") == "tagihan"? "selected" : "" }} value="tagihan">Tagihan</option>' +
           '<option {{ old("category") == "pengeluaran-lain" ? "selected" : "" }} value="pengeluaran-lain">Pengeluaran Lain</option>'
         );
-        $('.prepend').text('- Rp');
+        // $('.prepend').text('- Rp');
         $('.prepend').addClass('prepend-pengeluaran')
         $("#pengeluaran").prop("checked", true);
       } else {
@@ -133,7 +133,7 @@
           '<option {{ old("category") == "iuran-anggota" ? "selected" : "" }} value="iuran-anggota">Iuran Anggota</option>' +
           '<option {{ old("category") == "pemasukan-lain" ? "selected" : "" }} value="pemasukan-lain">Pemasukan Lain</option>'
         );
-        $('.prepend').text('+ Rp');
+        // $('.prepend').text('+ Rp');
         $('.prepend').removeClass('prepend-pengeluaran')
         $("#pemasukan").prop("checked", true);
       }

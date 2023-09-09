@@ -17,15 +17,15 @@ use App\Http\Controllers\TransactionController;
 |
 */
 
-Route::get('/', function () {
+Route::get('login', function () {
     return view('login');
-});
+})->name('login');
 
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('auth.google');
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 Route::get('logout', [GoogleController::class, 'logout'])->name('logout');
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-Route::resource('transaction', TransactionController::class);
-Route::get('transaction/{transaction}/attachment', [TransactionController::class, 'getImage'])->name('transaction.get-image');
-Route::get('/users', [UserController::class, 'index'])->name('users');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
+Route::resource('transaction', TransactionController::class)->middleware('auth');
+Route::get('transaction/{transaction}/attachment', [TransactionController::class, 'getImage'])->name('transaction.get-image')->middleware('auth');
+Route::get('/users', [UserController::class, 'index'])->name('users')->middleware('auth');
