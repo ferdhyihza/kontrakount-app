@@ -32,4 +32,4 @@ Route::get('logout', [GoogleController::class, 'logout'])->name('logout');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 Route::resource('transaction', TransactionController::class)->middleware('auth');
 Route::get('transaction/{transaction}/attachment', [TransactionController::class, 'getImage'])->name('transaction.get-image')->middleware('auth');
-Route::get('/users', [UserController::class, 'index'])->name('users')->middleware('auth');
+Route::resource('user', UserController::class)->middleware('auth');

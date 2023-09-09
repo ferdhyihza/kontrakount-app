@@ -15,7 +15,7 @@
           @foreach ($users as $user)
 
           <li class="list-group-item px-0">
-            <a class="text-decoration-none" href="{{ $user->id }}">
+            <a class="text-decoration-none" href="{{ route('user.show', $user->id) }}">
               <div class="d-flex justify-content-between py-1 mx-2 disable-cursor">
                 <div class="list-item-kiri d-flex gap-2" style="width: 60%">
                   <div class="list-img d-flex">
