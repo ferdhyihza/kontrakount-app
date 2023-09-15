@@ -10,7 +10,7 @@
       </div>
       <div class="modal-footer justify-content-center">
         <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-logout">Logout</button>
+        <a href="{{ route('logout') }}" class="btn btn-logout">Logout</a>
       </div>
     </div>
   </div>

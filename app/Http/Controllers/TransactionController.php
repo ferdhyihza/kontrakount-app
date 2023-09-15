@@ -59,7 +59,7 @@ class TransactionController extends Controller
             'title'     => 'required',
             'amount'     => 'required|integer|min:3',
             'category'     => 'required|in:iuran-anggota,pemasukan-lain,belanja-kebutuhan,tagihan,pengeluaran-lain',
-            'date' => 'required',
+            'datetime' => 'required',
             'note' => '',
             'attachment' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ];
@@ -69,6 +69,10 @@ class TransactionController extends Controller
             $validated_data['amount'] = $validated_data['amount'] * -1;
         };
         // return dd($validated_data);
+
+        // Created by
+        if ($validated_data['note']) $validated_data['note'] = $validated_data['note'] . '<br> [' . auth()->user()->name . ']';
+        else $validated_data['note'] = '[' . auth()->user()->name . ']';
 
         //upload image
         if (isset($validated_data['attachment'])) {

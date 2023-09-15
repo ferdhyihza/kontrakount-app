@@ -6,11 +6,17 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body text-center pb-4">
-        <img src="{{ asset('img/google-logo.png') }}" class="img-thumbnail my-4">
+        <img src="{{ Auth::user()->avatar }}" class="img-thumbnail my-4">
         <p class="label-item mt-3 mb-1">Nama</p>
-        <h6 class="nama-user">Nama Penggunanya</h6>
+        <h5 class="nama-user"> {{ Auth::user()->name }}</h5>
+        <p class="label-item mt-3 mb-1">Email</p>
+        <h6 class="atribut-user"> {{ Auth::user()->email }}</h6>
         <p class="label-item mt-3 mb-1">Status</p>
-        <h6 class="nama-user">Unverified</h6>
+        @if(Auth::user()->is_admin)
+        {!! Auth::user()->is_admin == 1 ? '<span class="badge text-bg-secondary">Admin</span>' : '' !!}
+        @else
+        <h6 class="atribut-user">{{ Auth::user()->user_verified_at == null ? 'Unverified' : 'Verified' }}</h6>
+        @endif
       </div>
     </div>
   </div>

@@ -16,6 +16,12 @@
     <label class="btn-outline-primary label-jenis" for="btnradio2">Pengeluaran</label>
   </div>
 
+  @can('not_verified')
+  <div class="alert alert-warning py-2" role="alert">
+    <span class="text-alert">⚠️ Fitur hanya untuk pengguna <strong>verified</strong>.</span>
+  </div>
+  @endcan
+
   <form action="{{ route('transaction.store') }}" method="POST" enctype="multipart/form-data" class="overflow-y-scroll disable-scrollbar">
     @csrf
     {{-- fake type --}}
@@ -24,7 +30,7 @@
     {{-- title --}}
     <div class="mb-3">
       <label for="nama-trx" class="form-label">Judul</label>
-      <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="nama-trx" placeholder="Masukkan Judul" value="{{ old('title') }}" required>
+      <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="nama-trx" placeholder="Masukkan Judul" value="{{ old('title') }}" required @can('not_verified') disabled @endcan>
       @error('title')
       <div class="invalid-feedback">
         Judul tidak boleh kosong
@@ -40,17 +46,17 @@
         @else
         <span class="input-group-text prepend prepend-pemasukan">+ Rp</span>
         @endif
-        <input type="text" class="form-control @error('amount') is-invalid @enderror" name="amount" id="jumlah-trx" placeholder="Masukkan Jumlah" aria-describedby="inputGroupPrepend" value="{{ old('amount') }}" onkeyup="formatRupiah(this)" required>
-        <span class="input-group-text prepend">,00</span>
+        <input type="text" class="form-control @error('amount') is-invalid @enderror" name="amount" id="jumlah-trx" placeholder="Masukkan Jumlah" aria-describedby="inputGroupPrepend" value="{{ old('amount') }}" onkeyup="formatRupiah(this)" required @can('not_verified') disabled @endcan>
+        <span class="input-group-text">,00</span>
         <div class="invalid-feedback">
-          Pilih bilangan bulat saja
+          Pilih bilangan bulat saja, min 3 digit
         </div>
       </div>
     </div>
     {{-- category --}}
     <div class="mb-3">
       <label for="jumlah-trx" class="form-label">Kategori</label>
-      <select class="form-select @error('category') is-invalid @enderror" name="category" id="select-kategori" aria-label="Default select example" required>
+      <select class="form-select @error('category') is-invalid @enderror" name="category" id="select-kategori" aria-label="Default select example" required @can('not_verified') disabled @endcan>
         @switch(old('type'))
         @case('pengeluaran')
         <option selected>-- Pilih kategori pengeluaran --</option>
@@ -77,9 +83,9 @@
     </div>
     {{-- date --}}
     <div class="mb-3">
-      <label for="tanggal-trx" class="form-label">Tanggal</label>
-      <input type="date" max="{{ now()->toDateString('Y-m-d') }}" class="form-control @error('date') is-invalid @enderror" name="date" id="tanggal-trx" value="{{ old('date') }}" required>
-      @error('date')
+      <label for="tanggal-trx" class="form-label">Waktu</label>
+      <input type="datetime-local" max="{{ now()->toDateString('Y-m-d') }}" class="form-control @error('datetime') is-invalid @enderror" name="datetime" id="tanggal-trx" value="{{ old('datetime') }}" required @can('not_verified') disabled @endcan>
+      @error('datetime')
       <div class="invalid-feedback">
         Pilih tanggal yang benar
       </div>
@@ -88,16 +94,24 @@
     {{-- note --}}
     <div class="mb-3">
       <label for="catatan-trx" class="form-label">Catatan</label>
-      <input type="text" class="form-control" name="note" id="catatan-trx" placeholder="Masukkan Catatan" value="{{ old('note') }}">
+      <input type="text" class="form-control" name="note" id="catatan-trx" placeholder="Masukkan Catatan" value="{{ old('note') }}" @can('not_verified') disabled @endcan>
     </div>
     {{-- attachment --}}
     <div class="mb-4">
       <label for="file-trx" class="form-label">Lampiran</label>
-      <input class="form-control" type="file" name="attachment" id="file-trx" value="{{ old('attachment') }}">
+      <input class="form-control @error('attachment') is-invalid @enderror" type="file" name="attachment" id="file-trx" value="{{ old('attachment') }}" @can('not_verified') disabled @endcan>
+      @error('attachment')
+      <div class="invalid-feedback">
+        {{ $message }}
+      </div>
+      @enderror
     </div>
     {{-- submit --}}
+    @can('verified')
     <button type="submit" class="btn btn-simpan float-end mb-4">Simpan</button>
+    @endcan
   </form>
+
 </div>
 @endsection
 
@@ -125,7 +139,7 @@
           '<option {{ old("category") == "tagihan"? "selected" : "" }} value="tagihan">Tagihan</option>' +
           '<option {{ old("category") == "pengeluaran-lain" ? "selected" : "" }} value="pengeluaran-lain">Pengeluaran Lain</option>'
         );
-        $('.prepend').text('- Rp');
+        // $('.prepend').text('- Rp');
         $('.prepend').addClass('prepend-pengeluaran')
         $("#pengeluaran").prop("checked", true);
       } else {
@@ -133,7 +147,7 @@
           '<option {{ old("category") == "iuran-anggota" ? "selected" : "" }} value="iuran-anggota">Iuran Anggota</option>' +
           '<option {{ old("category") == "pemasukan-lain" ? "selected" : "" }} value="pemasukan-lain">Pemasukan Lain</option>'
         );
-        $('.prepend').text('+ Rp');
+        // $('.prepend').text('+ Rp');
         $('.prepend').removeClass('prepend-pengeluaran')
         $("#pemasukan").prop("checked", true);
       }

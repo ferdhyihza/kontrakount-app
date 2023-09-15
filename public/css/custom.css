@@ -222,7 +222,12 @@ body {
 }
 
 .nama-user {
-    font-weight: var(--fwsemibold);
+    font-weight: var(--fwbold);
+    color: var(--navy);
+}
+
+.atribut-user {
+    font-weight: var(--fwmedium);
     color: var(--navy);
 }
 
@@ -231,9 +236,12 @@ body {
     color: var(--navy);
 }
 
-#profilModalLabel,
-#logoutModalLabel {
+.modal-title {
     font-weight: var(--fwsemibold);
+}
+
+.modal {
+    color: var(--navy);
 }
 
 .modal-header,
@@ -331,6 +339,11 @@ label:has(+ div > input[required])::after {
     background-color: transparent;
 } */
 
+.text-alert {
+    font-size: 0.75rem;
+    font-weight: var(--fwmedium);
+}
+
 /* History */
 .month-divider {
     color: var(--navy);
@@ -340,4 +353,37 @@ label:has(+ div > input[required])::after {
 .disable-cursor {
     cursor: default;
     user-select: none;
+}
+
+/* User */
+.admin {
+    color: var(--navy);
+    font-weight: var(--fwsemibold);
+}
+
+.verified {
+    color: var(--green);
+    font-weight: var(--fwsemibold);
+}
+
+.unverified {
+    color: var(--red);
+    font-weight: var(--fwsemibold);
+}
+
+.btn-verified,
+.btn-verified:focus {
+    color: var(--lightnavy);
+    background-color: var(--green);
+}
+
+.btn-verified:hover {
+    color: var(--green);
+}
+
+.btn-verified:active {
+    color: #f8fbff;
+    font-weight: var(--fwsemibold);
+    background-color: var(--lightgreen);
+    border: 1px solid var(--lightgreen);
 }

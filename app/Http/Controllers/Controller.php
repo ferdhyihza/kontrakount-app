@@ -15,8 +15,8 @@ class Controller extends BaseController
 
     public function getTransaction($x = 0)
     {
-        if ($x == 0) $transactions = Transaction::orderByRaw('COALESCE(created_at, date) DESC')->get();
-        else $transactions = Transaction::orderByRaw('COALESCE(created_at, date) DESC')->take($x)->get();
+        if ($x == 0) $transactions = Transaction::orderBy('datetime', 'DESC')->get();
+        else $transactions = Transaction::orderBy('datetime', 'DESC')->take($x)->get();
         return $transactions;
     }
 }
