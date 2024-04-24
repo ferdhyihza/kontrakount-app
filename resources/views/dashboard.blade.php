@@ -18,8 +18,6 @@
     @endauth
   </div>
 
-  <h2 class="title text-center text-light"><img height="50" src="{{ asset('img/icon-kk.svg') }}" alt=""> KontraKount</h2>
-
   <div class="amount text-light text-center">
 
     <div class="saldo mb-4">

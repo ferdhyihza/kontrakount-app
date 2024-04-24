@@ -38,7 +38,7 @@ body {
 
 .login-page {
     height: 100%;
-    background-image: url("../img/login-page.svg");
+    background-image: url("../img/login-page.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 90%;
@@ -112,7 +112,7 @@ body {
 
 .dashboard {
     background-color: var(--navy);
-    background-image: url("../img/dashboard-bg.svg");
+    background-image: url("../img/dashboard-bg.webp");
     background-repeat: no-repeat;
     background-position: top;
     background-size: 100%;
