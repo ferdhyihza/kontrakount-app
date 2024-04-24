@@ -13,9 +13,9 @@
         <h6 class="atribut-user"> {{ Auth::user()->email }}</h6>
         <p class="label-item mt-3 mb-1">Status</p>
         @if(Auth::user()->is_admin)
-        {!! Auth::user()->is_admin == 1 ? '<span class="badge text-bg-secondary">Admin</span>' : '' !!}
+        {!! Auth::user()->is_admin == 1 ? '<span class="badge text-bg-dark">Admin</span>' : '' !!}
         @else
-        <h6 class="atribut-user">{{ Auth::user()->user_verified_at == null ? 'Unverified' : 'Verified' }}</h6>
+        <h6 class="atribut-user">{{ Auth::user()->user_verified_at == null ? '❎ Unverified' : '✅ Verified' }}</h6>
         @endif
       </div>
     </div>

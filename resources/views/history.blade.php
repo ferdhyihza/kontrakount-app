@@ -31,8 +31,8 @@
           'November',
           'Desember'
           );
-          $current_month = (int) date('m', strtotime($transaction->datetime));
-          $year = date('Y', strtotime($transaction->datetime));
+          $current_month = (int) date('m', strtotime($transaction->created_at));
+          $year = date('Y', strtotime($transaction->created_at));
           @endphp
           @if($last_month != $current_month)
           <li class="list-group-item px-2 bg-light border {{ $loop->iteration != 1 ? 'border-top-0' : ''; }}">

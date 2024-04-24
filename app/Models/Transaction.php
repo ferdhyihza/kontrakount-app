@@ -15,13 +15,13 @@ class Transaction extends Model
 
     public function scopeBulanIni($query)
     {
-        return $query->whereMonth('datetime', now()->month)
-            ->whereYear('datetime', now()->year);
+        return $query->whereMonth('created_at', now()->month)
+            ->whereYear('created_at', now()->year);
     }
 
     public function scopeBulanSebelumIni($query, $monthsAgo)
     {
-        return $query->whereMonth('datetime', now()->subMonths($monthsAgo)->month)
-            ->whereYear('datetime', now()->subMonths($monthsAgo)->year);
+        return $query->whereMonth('created_at', now()->subMonths($monthsAgo)->month)
+            ->whereYear('created_at', now()->subMonths($monthsAgo)->year);
     }
 }

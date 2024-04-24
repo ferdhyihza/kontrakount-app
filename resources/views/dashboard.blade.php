@@ -9,14 +9,27 @@
 @section('content')
 <div class="d-flex flex-column justify-content-between" style="height: 100%">
   <div class="d-flex header justify-content-center text-light mt-3 position-relative">
+    @auth
     <a class="p-3 rounded position-absolute start-0" href="#" data-bs-toggle="modal" data-bs-target="#profilModal"><img src="{{ asset('img/icon-profil.svg') }}"></a>
+    @endauth
     <h5 class="m-0 py-3 page-title">Dashboard</h5>
+    @auth
     <a class="p-3 rounded position-absolute end-0" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal"><img src="{{ asset('img/icon-logout.svg') }}"></a>
+    @endauth
   </div>
+
+  <h2 class="title text-center text-light"><img height="50" src="{{ asset('img/icon-kk.svg') }}" alt=""> KontraKount</h2>
 
   <div class="amount text-light text-center">
 
-    <div class="d-flex masuk-keluar justify-content-around mb-4">
+    <div class="saldo mb-4">
+      <h4 id="saldo-title">Saldo Kas</h4>
+      @php
+      $negative = false;
+      if ($saldo < 0) { $saldo=abs($saldo); $negative=true; } @endphp <h2 id="saldo-amount">{{ $negative ? '- ' : '' }}@currency($saldo)</h2>
+    </div>
+
+    <div class="d-flex masuk-keluar justify-content-around">
       <div class="masuk">
         <div class="masuk-title d-flex justify-content-center align-items-center mb-1">
           <p class="m-0">Pemasukan</p>
@@ -35,12 +48,7 @@
         <h4>@currency($pengeluaran)</h4>
       </div>
     </div>
-    <div class="saldo ">
-      <h4 id="saldo-title">Saldo Kas</h4>
-      @php
-      $negative = false;
-      if ($saldo < 0) { $saldo=abs($saldo); $negative=true; } @endphp <h2 id="saldo-amount">{{ $negative ? '- ' : '' }}@currency($saldo)</h2>
-    </div>
+
   </div>
 
   <div class="last-transaction card mb-3">
@@ -62,7 +70,9 @@
 </div>
 
 @include('modal.logout')
+@auth
 @include('modal.profil')
+@endauth
 
 
 @endsection

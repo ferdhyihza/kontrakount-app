@@ -59,7 +59,6 @@ class TransactionController extends Controller
             'title'     => 'required',
             'amount'     => 'required|integer|min:3',
             'category'     => 'required|in:iuran-anggota,pemasukan-lain,belanja-kebutuhan,tagihan,pengeluaran-lain',
-            'datetime' => 'required',
             'note' => '',
             'attachment' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ];
@@ -77,8 +76,7 @@ class TransactionController extends Controller
         //upload image
         if (isset($validated_data['attachment'])) {
             $image = $request->file('attachment');
-            // $image->storeAs('public/transactions', $image->hashName());
-            Gdrive::put($image->hashName(), $image);
+            $image->storeAs('public/transactions', $image->hashName());
             $validated_data['attachment'] = $image->hashName();
         };
 

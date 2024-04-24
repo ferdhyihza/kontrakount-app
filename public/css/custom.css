@@ -163,7 +163,8 @@ body {
     width: 24px;
 }
 
-.last-trx {
+.last-trx,
+.title-app {
     font-weight: var(--fwbold);
     color: var(--navy);
 }
@@ -312,14 +313,6 @@ input[type="number"]::placeholder {
 
 .form-label {
     font-weight: var(--fwmedium);
-}
-
-label:has(+ input[required])::after,
-label:has(+ select[required])::after,
-label:has(+ div > input[required])::after {
-    content: "*"; /* This can be any content you want to display */
-    color: red; /* Customize the color */
-    margin-left: 5px; /* Adjust spacing */
 }
 
 .btn-simpan,
