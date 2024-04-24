@@ -10,11 +10,11 @@
 <div class="d-flex flex-column justify-content-between" style="height: 100%">
   <div class="d-flex header justify-content-center text-light mt-3 position-relative">
     @auth
-    <a class="p-3 rounded position-absolute start-0" href="#" data-bs-toggle="modal" data-bs-target="#profilModal"><img src="{{ asset('img/icon-profil.webp') }}"></a>
+    <a class="p-3 rounded position-absolute start-0" href="#" data-bs-toggle="modal" data-bs-target="#profilModal"><img src="{{ asset('img/icon-profil.svg') }}"></a>
     @endauth
     <h5 class="m-0 py-3 page-title">Dashboard</h5>
     @auth
-    <a class="p-3 rounded position-absolute end-0" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal"><img src="{{ asset('img/icon-logout.webp') }}"></a>
+    <a class="p-3 rounded position-absolute end-0" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal"><img src="{{ asset('img/icon-logout.svg') }}"></a>
     @endauth
   </div>
 
@@ -31,17 +31,17 @@
       <div class="masuk">
         <div class="masuk-title d-flex justify-content-center align-items-center mb-1">
           <p class="m-0">Pemasukan</p>
-          <img src="{{ asset('img/icon-down.webp') }}">
+          <img src="{{ asset('img/icon-down.svg') }}">
         </div>
         <h4>@currency($pemasukan)</h4>
       </div>
       <div class="divider">
-        <img src="{{ asset('img/divider.webp') }}" alt="" style="height: 64px">
+        <img src="{{ asset('img/divider.svg') }}" alt="" style="height: 64px">
       </div>
       <div class="keluar">
         <div class="keluar-title d-flex justify-content-center align-items-center mb-1">
           <p class="m-0">Pengeluaran</p>
-          <img src="{{ asset('img/icon-up.webp') }}">
+          <img src="{{ asset('img/icon-up.svg') }}">
         </div>
         <h4>@currency($pengeluaran)</h4>
       </div>
