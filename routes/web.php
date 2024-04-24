@@ -18,7 +18,7 @@ use App\Http\Controllers\TransactionController;
 */
 
 Route::get('/', function () {
-    return redirect('login');
+    return redirect('dashboard');
 });
 
 Route::get('login', function () {
@@ -29,7 +29,7 @@ Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->middleware('guest');
 Route::get('logout', [GoogleController::class, 'logout'])->name('logout')->middleware('auth');
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::resource('transaction', TransactionController::class)->middleware('auth');
 Route::get('transaction/{transaction}/attachment', [TransactionController::class, 'getImage'])->name('transaction.get-image')->middleware('auth');
 Route::get('user', [UserController::class, 'index'])->middleware('is_admin');

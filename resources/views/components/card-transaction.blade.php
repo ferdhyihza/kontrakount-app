@@ -2,7 +2,8 @@
   <a class="text-decoration-none" target="_blank" @if (stripos($transaction->attachment, 'drive') !== false )
     href="{{ $transaction->attachment }}"
     @elseif($transaction->attachment != null)
-    href="{{ route('transaction.get-image', ['transaction' => $transaction->id]) }}"
+    {{-- route ke storage gambar --}}
+    href="{{ asset('storage/transactions/' . $transaction->attachment) }}"
     @endif>
     <div class="d-flex justify-content-between py-1 mx-2 disable-cursor">
       <div class="list-item-kiri d-flex gap-2" style="width: 60%">
@@ -23,7 +24,7 @@
         @else
         <h6 class="m-0 item-amount pemasukan">+ @currency(abs($transaction->amount))</h6>
         @endif
-        <p class="m-0 item-date">{{ date('d/m/Y H.i', strtotime($transaction->datetime)) }}</p>
+        <p class="m-0 item-date">{{ date('d/m/Y H.i', strtotime($transaction->created_at)) }}</p>
       </div>
     </div>
   </a>

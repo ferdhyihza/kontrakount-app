@@ -18,7 +18,7 @@
 
   @can('not_verified')
   <div class="alert alert-warning py-2" role="alert">
-    <span class="text-alert">⚠️ Fitur hanya untuk pengguna <strong>verified</strong>.</span>
+    <span class="text-alert">Fitur hanya untuk pengguna <strong>verified</strong>. Send <a class="font-italic" href="mailto: contact@ferdhyihza.my.id"> email</a> to get verification from admin.</span>
   </div>
   @endcan
 
@@ -81,24 +81,14 @@
       </div>
       @enderror
     </div>
-    {{-- date --}}
-    <div class="mb-3">
-      <label for="tanggal-trx" class="form-label">Waktu</label>
-      <input type="datetime-local" max="{{ now()->toDateString('Y-m-d') }}" class="form-control @error('datetime') is-invalid @enderror" name="datetime" id="tanggal-trx" value="{{ old('datetime') }}" required @can('not_verified') disabled @endcan>
-      @error('datetime')
-      <div class="invalid-feedback">
-        Pilih tanggal yang benar
-      </div>
-      @enderror
-    </div>
     {{-- note --}}
     <div class="mb-3">
-      <label for="catatan-trx" class="form-label">Catatan</label>
+      <label for="catatan-trx" class="form-label">Catatan <span class="font-italic font-weight-light">(optional)</span></label>
       <input type="text" class="form-control" name="note" id="catatan-trx" placeholder="Masukkan Catatan" value="{{ old('note') }}" @can('not_verified') disabled @endcan>
     </div>
     {{-- attachment --}}
     <div class="mb-4">
-      <label for="file-trx" class="form-label">Lampiran</label>
+      <label for="file-trx" class="form-label">Lampiran <span class="font-italic font-weight-light">(optional)</span></label>
       <input class="form-control @error('attachment') is-invalid @enderror" type="file" name="attachment" id="file-trx" value="{{ old('attachment') }}" @can('not_verified') disabled @endcan>
       @error('attachment')
       <div class="invalid-feedback">

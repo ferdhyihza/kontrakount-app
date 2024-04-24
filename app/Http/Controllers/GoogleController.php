@@ -32,7 +32,7 @@ class GoogleController extends Controller
                 }
                 Auth::login($findUser);
                 $request->session()->regenerate();
-                return redirect()->intended('dashboard');
+                return redirect()->intended('dashboard')->with('login-success', 'Welcome to KontraKount!');
             } else {
                 if (User::count() == 0) {
                     $admin = true;
@@ -50,7 +50,7 @@ class GoogleController extends Controller
                     'user_verified_at' => $verified,
                 ]);
                 Auth::login($newUser);
-                return redirect()->intended('dashboard');
+                return redirect()->intended('dashboard')->with('login-success', 'Welcome to KontraKount!');
             }
         } catch (Exception $e) {
             return dd($e);
@@ -65,6 +65,6 @@ class GoogleController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        return redirect('/dashboard');
     }
 }

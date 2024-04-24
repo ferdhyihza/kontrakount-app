@@ -13,7 +13,7 @@
         <h6 class="atribut-user"> {{ $user->email }}</h6>
         <p class="label-item mt-3 mb-1">Status</p>
         @if($user->is_admin)
-        {!! $user->is_admin == 1 ? '<span class="badge text-bg-secondary">Admin</span>' : '' !!}
+        {!! $user->is_admin == 1 ? '<span class="badge text-bg-dark">Admin</span>' : '' !!}
         @else
         @if($user->user_verified_at == null)
         <h6 class="atribut-user unverified">Unverified</h6>
