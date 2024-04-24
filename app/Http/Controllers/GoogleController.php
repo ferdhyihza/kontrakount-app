@@ -53,7 +53,7 @@ class GoogleController extends Controller
                 return redirect()->intended('dashboard')->with('login-success', 'Welcome to KontraKount!');
             }
         } catch (Exception $e) {
-            return dd($e);
+            // return dd($e);
         }
     }
 

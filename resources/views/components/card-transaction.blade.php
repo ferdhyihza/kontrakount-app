@@ -8,7 +8,7 @@
     <div class="d-flex justify-content-between py-1 mx-2 disable-cursor">
       <div class="list-item-kiri d-flex gap-2" style="width: 60%">
         <div class="list-img d-flex">
-          <img src="{{ asset('img/icon-'. $transaction->category .'.svg') }}" alt="" style="width: 48px">
+          <img src="{{ asset('img/icon-'. $transaction->category .'.webp') }}" alt="" style="width: 48px">
         </div>
         <div class="list-desc d-flex flex-column justify-content-center">
           <h6 class="m-0 item-name">{{ ucwords(strtolower($transaction->title)) }}
