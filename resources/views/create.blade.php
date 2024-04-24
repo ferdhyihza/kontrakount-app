@@ -90,6 +90,7 @@
     <div class="mb-4">
       <label for="file-trx" class="form-label">Lampiran <span class="font-italic font-weight-light">(optional)</span></label>
       <input class="form-control @error('attachment') is-invalid @enderror" type="file" name="attachment" id="file-trx" value="{{ old('attachment') }}" @can('not_verified') disabled @endcan>
+      <span class="text-alert">Max size: 2MB. Format: jpeg, png, jpg, gif, svg</span>
       @error('attachment')
       <div class="invalid-feedback">
         {{ $message }}
